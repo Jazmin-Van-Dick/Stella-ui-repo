@@ -1,17 +1,13 @@
 import { Button, Div, ScrollDiv, Text } from "react-native-magnus";
 import React, { useState } from "react";
 import { SafeAreaStyled } from "../style";
-import { BrandCard, Header } from "@/components/index";
+import { BrandCard, Header, LoadingView } from "@/components/index";
 import { router } from "expo-router";
 import brands from "./Brands";
 
 export default function Index() {
-    const [selectedGender, setSelectedGender] = useState<'female' | 'male' | null>(null);
-    const [selectedBrands, setSelectedBrands] = useState<string[]>([]); // Track selected brands
-
-    const handleGenderSelect = (gender: 'female' | 'male') => {
-        setSelectedGender(gender);
-    };
+    const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(false); 
 
     const handleBrandSelect = (brandName: string) => {
         setSelectedBrands(prevState => 
@@ -19,6 +15,10 @@ export default function Index() {
                 ? prevState.filter(name => name !== brandName) 
                 : [...prevState, brandName]
         );
+    };
+    
+    if (isLoading) {
+        return <LoadingView />
     };
 
     return (
@@ -63,7 +63,7 @@ export default function Index() {
                 alignSelf="stretch"
                 rounded="circle"
                 onPress={() => {
-                    console.log("Selected Brands:", selectedBrands); 
+                    setIsLoading(true);
                 }}
             >
                 <Text fontWeight="bold" color="#fff" fontSize={16}>

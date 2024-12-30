@@ -1,9 +1,7 @@
 // import Purchases from 'react-native-purchases';
 import { Button, Div, Text } from "react-native-magnus";
-import { SafeAreaStyled } from "./style";
-import GoogleLogo from "@/components/GoogleIcon";
-import AppleLogo from "@/components/AppleIcon";
-import { Link, router } from "expo-router";
+import { SafeAreaStyled } from "../style";
+import { router } from "expo-router";
 import LogoSquared from "@/components/LogoSquared";
 
 export default function Index() {
@@ -24,21 +22,20 @@ export default function Index() {
           fontSize={'6xl'}
           textAlign="center"
           fontWeight="900"
-          color="#AB5B0B"
+          color="#0C0D12"
           mt={9}
         >
-          Meet Stella
+          Yes, having great style is really this simple
         </Text>
 
         <Text 
-          fontSize={'6xl'}
+          fontSize={16}
           textAlign="center"
-          fontWeight="bold"
           color="#232636"
           mt={9}
           mb={20}
         >
-          Your personal AI stylist
+          Answer a few questions and Stella will help you choose what you should wear based on the occasion, weather, or anything in between.
         </Text>
       </Div>
 
@@ -48,7 +45,7 @@ export default function Index() {
         my={"sm"}
         alignSelf="stretch"
         rounded={"circle"}
-        onPress={() => router.push('/onboarding')}
+        onPress={() => router.push('/tellMeWhatToWear/occasion')}
       >
         <Text 
           fontWeight="bold" 

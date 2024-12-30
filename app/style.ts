@@ -8,6 +8,7 @@ interface SafeAreaVariables {
 
 export const SafeAreaStyled = styled(SafeAreaView)<SafeAreaVariables>`
     flex: 1;
+    padding-bottom: 16px;
     ${({$bg}) => $bg && `
         background: ${$bg};
     `}

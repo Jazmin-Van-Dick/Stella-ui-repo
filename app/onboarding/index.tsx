@@ -3,7 +3,7 @@ import { Button, Div, Text } from "react-native-magnus";
 import { SafeAreaStyled } from "../style";
 import GoogleLogo from "@/components/GoogleIcon";
 import AppleLogo from "@/components/AppleIcon";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import LogoSquared from "@/components/LogoSquared";
 
 export default function Index() {
@@ -67,6 +67,7 @@ export default function Index() {
         my={"sm"}
         alignSelf="stretch"
         rounded={"circle"}
+        onPress={() => router.push('/signIn')}
       >
         <Text 
           fontWeight="bold" 
@@ -109,8 +110,11 @@ export default function Index() {
         justifyContent="center"
         mt={'sm'}
         mb={'xl'}
+        style={{gap: 16}}
       >
-        <GoogleLogo />
+        <Link href={'/tellMeWhatToWear'}>
+          <GoogleLogo />
+        </Link>
 
         <AppleLogo />
       </Div>
