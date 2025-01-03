@@ -27,6 +27,14 @@ export default function RootLayout() {
             name="formality"
             options={{ gestureEnabled: false }}
           />
+          <Stack.Screen
+            name="results"
+            options={{ gestureEnabled: false }}
+          />
+          <Stack.Screen
+            name="success"
+            options={{ gestureEnabled: false }}
+          />
         </Stack>
       </GestureHandlerRootView>
     </ThemeProvider>

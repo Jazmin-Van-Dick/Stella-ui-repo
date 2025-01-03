@@ -33,12 +33,12 @@ export default function Index() {
         my={"sm"}
         alignSelf="stretch"
         rounded={"circle"}
+        onPress={() => router.push('/onboarding/verifyPhone')}
       >
         <Text 
           fontWeight="bold" 
           color="#fff"
           fontSize={16}
-          onPress={() => router.push('/onboarding/verifyPhone')}
         >
           Next
         </Text>

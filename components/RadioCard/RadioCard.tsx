@@ -21,7 +21,7 @@ const RadioCard: React.FC<RadioCardProps> = ({
 }) => (
     <TouchableOpacity 
         onPress={onSelect}
-        style={{width: '100%', maxWidth: '45%'}}
+        style={{width: '100%', maxWidth: '43%'}}
         activeOpacity={.8}
     >
         <Div

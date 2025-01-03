@@ -1,9 +1,7 @@
 // import Purchases from 'react-native-purchases';
 import { Button, Div, Text } from "react-native-magnus";
 import { SafeAreaStyled } from "./style";
-import GoogleLogo from "@/components/GoogleIcon";
-import AppleLogo from "@/components/AppleIcon";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import LogoSquared from "@/components/LogoSquared";
 
 export default function Index() {
@@ -48,7 +46,9 @@ export default function Index() {
         my={"sm"}
         alignSelf="stretch"
         rounded={"circle"}
-        onPress={() => router.push('/onboarding')}
+        onPress={() => {
+          router.push('/tellMeWhatToWear')
+        }}
       >
         <Text 
           fontWeight="bold" 

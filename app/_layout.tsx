@@ -3,6 +3,7 @@ import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { ThemeProvider } from "react-native-magnus";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { BottomSheet } from "@/components";
 export default function RootLayout() {
   const [loaded] = useFonts({
     ClassyVouge: require("../assets/fonts/ClassyVouge.otf"),

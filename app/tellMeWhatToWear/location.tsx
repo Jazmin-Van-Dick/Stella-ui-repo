@@ -53,7 +53,7 @@ export default function Index() {
                 rounded="circle"
                 disabled={!location}
                 onPress={() => {
-                    router.push("/tellMeWhatToWear/event");
+                    router.push("/tellMeWhatToWear/formality");
                 }}
             >
                 <Text

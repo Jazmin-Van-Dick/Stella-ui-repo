@@ -21,6 +21,10 @@ const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
         onSelect && onSelect({ description: data.description, details });
     };
 
+    const api_key = process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY;    ;
+
+    console.log(api_key);
+
     return (
         <Div mb="xl">
             {label && (
@@ -35,7 +39,7 @@ const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
                 fetchDetails
                 onPress={handleLocationSelect}
                 query={{
-                    key: 'AIzaSyCtTQyCi2b2s0l-hr87tNnGVkAvmVX_S-E',
+                    key: api_key,
                     language: "en",
                 }}
                 styles={{
@@ -73,7 +77,7 @@ const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
                 position="absolute"
                 right={12}
                 top={3.5}
-                h={'80%'}
+                h={50}
                 justifyContent='center'
                 bg='white'
             >
