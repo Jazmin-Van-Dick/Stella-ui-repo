@@ -24,7 +24,7 @@ return (
       <ScrollDiv
         scrollEnabled={true}
         showsVerticalScrollIndicator={true}
-        keyboardShouldPersistTaps={true}
+        keyboardShouldPersistTaps={'always'}
         keyboardDismissMode='on-drag'
       >
 

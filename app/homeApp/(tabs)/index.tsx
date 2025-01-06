@@ -1,14 +1,18 @@
 import { Div, ScrollDiv, Snackbar, Text } from "react-native-magnus";
 import React, { useEffect, useState } from "react";
-import { Chip, SavedItemCard } from "@/components/index";
-import { CloudIcon, PinIconChip, PlusIcon } from "@/components/Icons";
+import { Chip, CustomSnackBar, SavedItemCard } from "@/components/index";
+import { CameraIcon, CloudIcon, LockIcon, PinIconChip, PlusIcon, TagIcon } from "@/components/Icons";
 import { router, useGlobalSearchParams } from "expo-router";
 import { Images2, NightOutInLondonImage } from "@/assets/resultImages/ResultImages";
 import LogoSquared from "@/components/LogoSquared";
 import { ChevronDownFilled } from "@/components/icon/ChevronDownFilled";
-import { SafeAreaView } from "react-native";
+import { Pressable, SafeAreaView } from "react-native";
 
 export default function Index() {
+  const [savedItem, setSavedItem] = useState<boolean>(false);
+  const [hasOccasion, setHasOccasion] = useState<boolean>(false);
+  const [styleQuizComplete, setStyleQuizComplete] = useState<boolean>(false);
+
   return (
     <SafeAreaView 
       style={{
@@ -19,7 +23,7 @@ export default function Index() {
       <ScrollDiv
         scrollEnabled={true}
         showsVerticalScrollIndicator={false}
-        keyboardShouldPersistTaps={true}
+        keyboardShouldPersistTaps={'always'}
         keyboardDismissMode='on-drag'
         px={16}
       >
@@ -49,7 +53,13 @@ export default function Index() {
             <ChevronDownFilled />
           </Div>
 
-          <PlusIcon />
+          <Pressable
+            onPress={() => {
+              router.push('/FeedbackModule')
+            }}
+          >
+            <PlusIcon />
+          </Pressable>
         </Div>
 
         <Div
@@ -64,30 +74,132 @@ export default function Index() {
             <Chip icon={<CloudIcon />} text="2 °C" />
         </Div>
 
-        <SavedItemCard
-          images={NightOutInLondonImage}
-          section="OCASSION"
-          title="A night out in London"
-          onPress={() => {
-            router.push({
-              pathname: "/homeApp",
-              params: {
-                snackbarText: "Look saved successfully!",
-              },
-          });
-          }}
-          mb={16}
-        />
+        {!styleQuizComplete && (
+          <CustomSnackBar 
+            icon={<TagIcon />}
+            onPress={() => {
+              router.push('/styleQuiz')
+            }}
+            content={
+              <Div row>
+                <Text
+                  fontSize={14}
+                  color="#AB5B0B"
+                >
+                  Enhance your experience with our {""}
+                </Text>
 
-        <SavedItemCard
-          images={Images2}
-          section="TELL ME WHAT TO WEAR"
-          title="Vintage"
-          onPress={() => {
-            router.push('/tellMeWhatToWear/results')
-          }}
-          mb={16}
-        />
+                <Text
+                  fontSize={14}
+                  color="#AB5B0B"
+                  textDecorLine="underline"
+                >
+                  style quiz
+                </Text>
+              </Div>
+            }
+          />
+        )}
+        
+        {hasOccasion ? (
+          <SavedItemCard
+            images={NightOutInLondonImage}
+            section="OCASSION"
+            title="A night out in London"
+            onPress={() => {
+              router.push({
+                pathname: "/homeApp",
+                params: {
+                  snackbarText: "Look saved successfully!",
+                },
+            });
+            }}
+            mb={16}
+          />
+        ) : (
+          <Div
+            h={194}
+            bg="#F4F5F9"
+            rounded={16}
+            px={16}
+            py={24}
+            alignItems="center"
+            justifyContent="center"
+            mb={16}
+          >
+            <CameraIcon />
+
+            <Text
+              fontWeight="bold"
+              fontSize={14}
+              color="#232636"
+              mt={8}
+              textAlign="center"
+            >
+              We’ll help you dress your best
+            </Text>
+
+            <Text
+              fontSize={14}
+              color="#232636"
+              mt={8}
+              textAlign="center"
+            >
+              Take a picture and Stella will bring you outfit ideas.
+            </Text>
+          </Div>
+        )}
+
+        {!styleQuizComplete ? (
+          <Div
+            h={194}
+            bg="#fff"
+            rounded={16}
+            px={16}
+            py={24}
+            alignItems="center"
+            justifyContent="center"
+            mb={16}
+            borderWidth={1.5}
+            borderColor="#ECEDF1"
+          >
+            <LockIcon />
+
+            <Text
+              fontWeight="bold"
+              fontSize={14}
+              color="#61667B"
+              mt={8}
+              textAlign="center"
+            >
+              Share your occasion, we’ll create your fit.
+            </Text>
+
+            <Text
+              fontSize={14}
+              color="#61667B"
+              mt={8}
+              textAlign="center"
+            >
+              Complete style quiz to unlock.
+            </Text>
+          </Div>
+        ) : (
+          <></>
+        )}
+
+        { savedItem && (
+          <SavedItemCard
+            images={Images2}
+            section="TELL ME WHAT TO WEAR"
+            title="Vintage"
+            onPress={() => {
+              router.push('/tellMeWhatToWear/results')
+            }}
+            mb={16}
+          />
+        )}
+
       </ScrollDiv>
     </SafeAreaView>
   );

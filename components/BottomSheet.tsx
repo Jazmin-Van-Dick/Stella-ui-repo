@@ -8,6 +8,8 @@ import Animated, {
 } from "react-native-reanimated";
 import { PanGestureHandler, PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
 import { Div, Text } from "react-native-magnus";
+import { ChevronRight } from "./Icons";
+import { router } from "expo-router";
 
 type BottomSheetProps = {
   title?: string;
@@ -15,6 +17,7 @@ type BottomSheetProps = {
   onClose: () => void;
   height?: number;
   children: React.ReactNode;
+  navBack?: boolean;
 };
 
 const BottomSheet: React.FC<BottomSheetProps> = ({
@@ -23,6 +26,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
   onClose,
   height,
   children,
+  navBack,
 }) => {
   const [contentHeight, setContentHeight] = useState(0);
   const translateY = useSharedValue(height || contentHeight);
@@ -69,10 +73,26 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
               w="100%"
               borderBottomWidth={1.5}
               borderBottomColor="#ECEDF1"
+              row
+              justifyContent={navBack ? "space-between" : 'center'}
+              alignItems="center"
             >
+              {navBack && (
+                <Pressable
+                  onPress={() => {
+                    router.back();
+                  }}
+                >
+                  <ChevronRight bg="black" rotation={180} />
+                </Pressable>
+              )}
               <Text textAlign="center" fontWeight="bold" fontSize={16}>
                 {title}
               </Text>
+
+              {navBack && (
+                <Div></Div>
+              )}
             </Div>
           )}
 

@@ -1,7 +1,7 @@
 import { Button, Div, Image, Radio, ScrollDiv, Text } from "react-native-magnus";
 import React, { useState } from "react";
 import { SafeAreaStyled } from "../style";
-import { Header, Chip, LoadingSection, BottomSheet, TextField } from "@/components/index";
+import { Header, Chip, LoadingSection, BottomSheet, TextField, StellaSaysCard } from "@/components/index";
 import { CloudIcon, EditIcon, InfoIcon, PinIconChip } from "@/components/Icons";
 import Logo from "@/components/Logo";
 import { router } from "expo-router";
@@ -104,7 +104,7 @@ return (
             <ScrollDiv
                 scrollEnabled={true}
                 showsVerticalScrollIndicator={true}
-                keyboardShouldPersistTaps={true}
+                keyboardShouldPersistTaps={'always'}
                 keyboardDismissMode='on-drag'
             >
                 <Header title="Here are your results" navBack />
@@ -129,59 +129,9 @@ return (
                     {isLoading ? (
                         <LoadingSection />
                     ) : (
-                        <>
-                            <Div
-                                flexDir="column"
-                                bg="#F9F4EE"
-                                px={8}
-                                pt={8}
-                                pb={12}
-                                rounded={10}
-                                mt={24}
-                                mb={16}
-                            >
-                                <Div row>
-                                    <Logo w={9} h={20} bg="#AB5B0B" />
-                                    <Text
-                                        color="#AB5B0B"
-                                        fontSize={12}
-                                        fontWeight="bold"
-                                        ml={8}
-                                    >
-                                        Stella says ...
-                                    </Text>
-                                </Div>
-
-                                <Text
-                                    color="#AB5B0B"
-                                    fontSize={12}
-                                    fontWeight="bold"
-                                    mt={8}
-                                >
-                                    Gold jewelry like a delicate gold necklace
-                                    and gold hoop earrings to add warmth to the
-                                    outfit.
-                                </Text>
-                            </Div>
-
-                            <Div
-                                row
-                                flexWrap="wrap"
-                                style={{
-                                    gap: 16,
-                                }}
-                            >
-                                {showImages.map((item, index) => (
-                                    <Image
-                                        key={index}
-                                        h={200}
-                                        rounded={16}
-                                        w={"47%"}
-                                        source={item}
-                                    />
-                                ))}
-                            </Div>
-                        </>
+                        <StellaSaysCard 
+                            result="Gold jewelry like a delicate gold necklace and gold hoop earrings to add warmth to the outfit."
+                        />
                     )}
                 </Div>
 

@@ -13,6 +13,10 @@ export default function RootLayout() {
             name="index"
             options={{ headerShown: false, gestureEnabled: false }}
           />
+          <Stack.Screen
+            name="fitSize"
+            options={{ headerShown: false, gestureEnabled: false }}
+          />
         </Stack>
       </GestureHandlerRootView>
     </ThemeProvider>

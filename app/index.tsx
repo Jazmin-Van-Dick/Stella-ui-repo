@@ -47,7 +47,7 @@ export default function Index() {
         alignSelf="stretch"
         rounded={"circle"}
         onPress={() => {
-          router.push('/tellMeWhatToWear')
+          router.push('/homeApp')
         }}
       >
         <Text 

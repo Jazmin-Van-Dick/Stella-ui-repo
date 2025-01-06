@@ -2,38 +2,34 @@ import { router } from "expo-router";
 import { Button, Div, ScrollDiv, Text } from "react-native-magnus";
 import Logo from "@/components/Logo";
 import { Header, SelectionCard } from "@/components";
-import { Apple, Hourglass, InvertedTriangle, Rectangle, Triangle } from "@/components/Icons";
+import { PlusSize, Hourglass, Regular, Fitness, Thin, } from "@/components/Icons";
 import { useState } from "react";
 import { SafeAreaStyled } from "../style";
 
 export default function Index() {
-  const [selectedBodyType, setSelectedBodyType] = useState<string>('');
+  const [selectedFitSize, setSelectedFitSize] = useState<string>('');
 
   const handleSelect = (occasion: string) => {
-    setSelectedBodyType(occasion);
+    setSelectedFitSize(occasion);
   };
 
   const Options = [
     {
-      icon: <InvertedTriangle />,
-      text: 'Inverted Triangle'
+      icon: <Regular />,
+      text: 'Regular'
     },
     {
-      icon: <Apple />,
-      text: 'Apple'
+      icon: <PlusSize />,
+      text: 'Plus size'
     },
     {
-      icon: <Triangle />,
-      text: 'Triangle'
+      icon: <Fitness />,
+      text: 'Fitness'
     },
     {
-      icon: <Hourglass />,
-      text: 'Hourglass'
+      icon: <Thin />,
+      text: 'Thin'
     },
-    {
-      icon: <Rectangle />,
-      text: 'Rectangle'
-    }
   ]
   
   return (
@@ -53,11 +49,12 @@ export default function Index() {
           fontSize={24}
           mb={32}
           mt={32}
+          textAlign="center"
           style={{
             fontFamily: 'Manrope'
           }}
         >
-          What is your body type?
+          What’s your fit size?
         </Text>
 
         <Div
@@ -70,7 +67,7 @@ export default function Index() {
               key={index}
               icon={item.icon}
               text={item.text}
-              isSelected={selectedBodyType === item.text}
+              isSelected={selectedFitSize === item.text}
               onSelect={() => handleSelect(item.text)}
             />
           ))}
@@ -78,17 +75,17 @@ export default function Index() {
      </ScrollDiv>
 
      <Button
-        bg={selectedBodyType ? "#AB5B0B" : '#ECEDF1'}
+        bg={selectedFitSize ? "#AB5B0B" : '#ECEDF1'}
         mx={"xl"}
         my={"sm"}
         alignSelf="stretch"
         rounded={"circle"}
-        disabled={!selectedBodyType}
+        disabled={!selectedFitSize}
         onPress={() => router.push('/styleQuiz/fitSize')}
       >
         <Text 
           fontWeight="bold" 
-          color={selectedBodyType ? 'white' : '#898C9C'}
+          color={selectedFitSize ? 'white' : '#898C9C'}
           fontSize={16}
         >
           Next

@@ -1,0 +1,50 @@
+import { Div, Text } from "react-native-magnus"
+import Logo from "./Logo"
+import { ViewStyle } from "react-native";
+
+interface StellaSaysCardProps {
+    result: string,
+    mt?: string | number,
+    mb?: string | number,
+    style?: ViewStyle,
+}
+
+const StellaSaysCard = ({result, mt, mb, style} : StellaSaysCardProps ) => {
+    return (
+        <Div
+            flexDir="column"
+            bg="#F9F4EE"
+            px={8}
+            pt={8}
+            pb={12}
+            rounded={10}
+            mt={ mt || 24}
+            mb={ mb || 16}
+            style={style}
+        >
+            <Div row>
+                <Logo w={9} h={20} bg="#AB5B0B" />
+
+                <Text
+                    color="#AB5B0B"
+                    fontSize={12}
+                    fontWeight="bold"
+                    ml={8}
+                >
+                    Stella says ...
+                </Text>
+            </Div>
+
+            <Text
+                color="#AB5B0B"
+                fontSize={12}
+                fontWeight="bold"
+                mt={8}
+            >
+                {result}
+            </Text>
+        </Div>
+    )
+}
+
+export default StellaSaysCard;
