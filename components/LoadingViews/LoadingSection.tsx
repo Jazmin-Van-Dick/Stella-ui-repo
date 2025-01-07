@@ -9,7 +9,6 @@ const LoadingView: React.FC = () => {
     const [progressText, setProgressText] = useState("0%");
 
     useEffect(() => {
-        // Start spin animation (indefinite loop)
         Animated.loop(
             Animated.timing(spinValue, {
                 toValue: 1,

@@ -9,6 +9,7 @@ export { default as DatePicker } from './DatePicker/DatePicker';
 export { default as LocationField } from './LocationField/LocationField';
 export { default as CustomSlider } from './Slider/Slider';
 export { default as SuggestionChip } from './SuggestionChip';
+export { default as SuggestionCard } from './SuggestionCard';
 export { default as Chip } from './Chip';
 export { default as SavedItemCard } from './SavedItemCard';
 export { default as CustomSnackBar } from './CustomSnackBar';

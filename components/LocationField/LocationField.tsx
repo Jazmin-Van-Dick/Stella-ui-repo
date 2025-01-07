@@ -23,8 +23,6 @@ const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
 
     const api_key = process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY;    ;
 
-    console.log(api_key);
-
     return (
         <Div mb="xl">
             {label && (

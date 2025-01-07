@@ -21,6 +21,10 @@ export default function RootLayout() {
             name="result"
             options={{ headerShown: false, gestureEnabled: false }}
           />
+          <Stack.Screen
+            name="saved"
+            options={{ headerShown: false, gestureEnabled: false }}
+          />
         </Stack>
       </GestureHandlerRootView>
     </ThemeProvider>

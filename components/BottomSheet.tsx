@@ -8,7 +8,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { PanGestureHandler, PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
 import { Div, Text } from "react-native-magnus";
-import { ChevronRight } from "./Icons";
+import { ChevronRight, CrossIcon } from "./Icons";
 import { router } from "expo-router";
 
 type BottomSheetProps = {
@@ -18,6 +18,7 @@ type BottomSheetProps = {
   height?: number;
   children: React.ReactNode;
   navBack?: boolean;
+  closeButton?: boolean;
 };
 
 const BottomSheet: React.FC<BottomSheetProps> = ({
@@ -27,6 +28,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
   height,
   children,
   navBack,
+  closeButton,
 }) => {
   const [contentHeight, setContentHeight] = useState(0);
   const translateY = useSharedValue(height || contentHeight);
@@ -74,7 +76,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
               borderBottomWidth={1.5}
               borderBottomColor="#ECEDF1"
               row
-              justifyContent={navBack ? "space-between" : 'center'}
+              justifyContent={navBack || closeButton ? "space-between" : 'center'}
               alignItems="center"
             >
               {navBack && (
@@ -92,6 +94,12 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
 
               {navBack && (
                 <Div></Div>
+              )}
+
+              {closeButton && (
+                <Pressable onPress={() => { onClose() }}>
+                  <CrossIcon />
+                </Pressable>
               )}
             </Div>
           )}

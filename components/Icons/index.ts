@@ -18,17 +18,19 @@ export { default as PlusIcon } from './PlusIcon';
 export { default as CameraIcon } from './CameraIcon';
 export { default as LockIcon } from './LockIcon';
 export { default as TagIcon } from './TagIcon';
+export { default as SaveIcon } from './SaveIcon';
 
 export { default as PinIconChip } from './PinIconChip';
 export { default as CloudIcon } from './CloudIcon';
 
 export { default as CheckIcon } from './CheckIcon';
+export { default as CrossIcon } from './CrossIcon';
 
 export { default as ChevronRight } from './ChevronRight';
 
 export { default as HomeIcon } from './tabs/HomeIcon';
-export { default as WardrobeIcon } from './tabs/WardrobeIcon';
 export { default as ProfileIcon } from './tabs/ProfileIcon';
+export { default as WardrobeIcon } from './tabs/WardrobeIcon';
 
 export { default as InvertedTriangle } from './bodyTypes/InvertedTriangle';
 export { default as Rectangle } from './bodyTypes/Rectangle';

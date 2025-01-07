@@ -3,10 +3,11 @@ import Logo from "./Logo"
 import { ViewStyle } from "react-native";
 
 interface StellaSaysCardProps {
-    result: string,
+    result?: string | null,
     mt?: string | number,
     mb?: string | number,
     style?: ViewStyle,
+    isLoading?: boolean;
 }
 
 const StellaSaysCard = ({result, mt, mb, style} : StellaSaysCardProps ) => {
@@ -41,7 +42,7 @@ const StellaSaysCard = ({result, mt, mb, style} : StellaSaysCardProps ) => {
                 fontWeight="bold"
                 mt={8}
             >
-                {result}
+                {result || '...'}
             </Text>
         </Div>
     )

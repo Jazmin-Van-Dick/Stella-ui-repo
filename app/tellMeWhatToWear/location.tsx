@@ -30,7 +30,6 @@ export default function Index() {
                     placeholder="Enter location"
                     onSelect={(selectedLocation) => {
                         setLocation(selectedLocation.description);
-                        console.log(location);
                     }}
                 />
             </Div>
