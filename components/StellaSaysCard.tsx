@@ -7,10 +7,11 @@ interface StellaSaysCardProps {
     mt?: string | number,
     mb?: string | number,
     style?: ViewStyle,
+    title?: string,
     isLoading?: boolean;
 }
 
-const StellaSaysCard = ({result, mt, mb, style} : StellaSaysCardProps ) => {
+const StellaSaysCard = ({result, mt, mb, style, title} : StellaSaysCardProps ) => {
     return (
         <Div
             flexDir="column"
@@ -32,7 +33,7 @@ const StellaSaysCard = ({result, mt, mb, style} : StellaSaysCardProps ) => {
                     fontWeight="bold"
                     ml={8}
                 >
-                    Stella says ...
+                    {title || 'Stella says ...'}
                 </Text>
             </Div>
 

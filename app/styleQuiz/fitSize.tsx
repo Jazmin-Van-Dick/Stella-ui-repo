@@ -81,7 +81,7 @@ export default function Index() {
         alignSelf="stretch"
         rounded={"circle"}
         disabled={!selectedFitSize}
-        onPress={() => router.push('/styleQuiz/fitSize')}
+        onPress={() => router.push('/styleQuiz/occasion')}
       >
         <Text 
           fontWeight="bold" 

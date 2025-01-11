@@ -42,3 +42,7 @@ export { default as Regular } from './fitSize/Regular';
 export { default as PlusSize } from './fitSize/PlusSize';
 export { default as Thin } from './fitSize/Thin';
 export { default as Fitness } from './fitSize/Fitness';
+
+export { default as CameraFrame } from './CameraFrame';
+export { default as Separator } from './Separator';
+export { default as ClothRack } from './ClothRack';

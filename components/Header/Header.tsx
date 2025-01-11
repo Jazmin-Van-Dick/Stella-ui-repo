@@ -1,20 +1,24 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Header, Icon, Text, Div } from 'react-native-magnus';
+import { Pressable } from 'react-native';
+import { router } from 'expo-router';
 
 interface HeaderProps {
   title: string;
   progress?: number;
   navBack?: boolean;
+  onSkip?: () => void;
+  bg?: string;
 }
 
-const HeaderComponent: React.FC<HeaderProps> = ({ title, progress, navBack }) => {
+const HeaderComponent: React.FC<HeaderProps> = ({ title, progress, navBack, bg, onSkip }) => {
   const navigation = useNavigation();
-
   return (
     <Div>
       <Header 
         p="lg"
+        bg={bg || 'white'}
         alignment="center"
         h={73}
         prefix={
@@ -28,6 +32,16 @@ const HeaderComponent: React.FC<HeaderProps> = ({ title, progress, navBack }) =>
                     </Button>
                 )}
             </>
+        }
+        suffix={onSkip && (
+            <Pressable
+              onPress={onSkip}
+            >
+              <Text fontSize={14} color="#232636" mr={4}>
+                SKIP
+              </Text>
+            </Pressable>
+          )
         }
         shadow="0"
       >

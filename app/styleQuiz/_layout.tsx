@@ -17,6 +17,26 @@ export default function RootLayout() {
             name="fitSize"
             options={{ headerShown: false, gestureEnabled: false }}
           />
+          <Stack.Screen
+            name="occasion"
+            options={{ headerShown: false, gestureEnabled: false }}
+          />
+          <Stack.Screen
+            name="preCamera"
+            options={{ headerShown: false, gestureEnabled: false }}
+          />
+          <Stack.Screen
+            name="camera"
+            options={{ headerShown: false, gestureEnabled: false }}
+          />
+          <Stack.Screen
+            name="result"
+            options={{ headerShown: false, gestureEnabled: false }}
+          />
+          <Stack.Screen
+            name="style"
+            options={{ headerShown: false, gestureEnabled: false }}
+          />
         </Stack>
       </GestureHandlerRootView>
     </ThemeProvider>
