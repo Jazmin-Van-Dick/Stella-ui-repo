@@ -13,13 +13,10 @@ export default function Section() {
     const renderOnboardingStep = () => {
         switch (step) {
         case 0:
-            return <Camera onConfirmPhoto={() => setStep(1)} />;
-        case 1:
             return <ReviewPhoto />;
         }
     };
 
-    
     const ReviewPhoto = () => {
         const [itemName, setItemName] = useState('');
         const [itemDescription, setItemDescription] = useState('');
@@ -27,6 +24,7 @@ export default function Section() {
         const [itemBrand, setItemBrand] = useState('');
         
         const isComplete = itemName && itemDescription && itemBrand && itemType;
+        
         return (
             <Div bg='#00000040' flex={1}>
                 <Div
@@ -42,7 +40,7 @@ export default function Section() {
                 >
                     <Pressable
                         onPress={() => {
-                            
+                            router.back()
                         }}
                     >
                         <ChevronLeft color={'black'}/>
@@ -143,7 +141,7 @@ export default function Section() {
                         mb={16}
                         disabled={!isComplete}
                         onPress={() => {
-                            router.push('/FeedbackModule/result')
+                            router.push('/homeApp/(tabs)/wardrobe')
                         }}
                     >
                         <Text fontWeight="bold" color={isComplete ? 'white' : '#898C9C'} fontSize={16}>
@@ -159,8 +157,9 @@ export default function Section() {
                         mb={40}
                         disabled={!isComplete}
                         onPress={() => {
-                            router.push('/FeedbackModule/result')
+                            router.push('/homeApp/camera')
                         }}
+                        
                     >
                         <Text fontWeight="bold" color={isComplete ? '#AB5B0B' : '#898C9C'} fontSize={16}>
                             Upload & start another
