@@ -61,7 +61,7 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
       {isVisible && (
         <Pressable style={styles.backdrop} onPress={onClose} />
       )}
-      <PanGestureHandler onGestureEvent={handleGesture} onEnded={handleGestureEnd}>
+      <PanGestureHandler>
         <Animated.View
           style={[
             styles.sheet,
